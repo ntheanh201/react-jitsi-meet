@@ -1,29 +1,19 @@
-import React, { useState } from 'react'
-import axios from 'axios'
+import React from 'react'
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
+import { JitsiMeet } from './JitsiMeet'
+import './App.css'
 
 const App = () => {
-  const [value, setValue] = useState(null)
-  const [showLink, setShowLink] = useState(false)
-  const onSubmit = () => {
-    console.log('foo')
-    return axios
-      .post(`https://alpha.jitsi.net/http-pre-bind?room=${value}`)
-      .then(function (response) {
-        console.log(response)
-        setShowLink(true)
-      })
-      .catch(function (error) {
-        console.log(error)
-      })
-  }
-
   return (
     <>
-      <input type='text' onChange={(event) => setValue(event.target.value)} />
-      <button onClick={onSubmit}>Generate</button>
-      <br />
-      <br />
-      {showLink && <span>https://localhost:8080/{value}</span>}
+      <Router>
+        <Switch>
+          <Route path='/:id'>
+            <JitsiMeet />
+          </Route>
+        </Switch>
+      </Router>
+      <JitsiMeet />
     </>
   )
 }
