@@ -6,13 +6,13 @@ import './App.css'
 const App = () => {
   return (
     <>
-      <Router>
+      {/* <Router>
         <Switch>
           <Route path='/:id'>
             <JitsiMeet />
           </Route>
         </Switch>
-      </Router>
+      </Router> */}
       <JitsiMeet />
     </>
   )
