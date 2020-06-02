@@ -33,7 +33,7 @@ export const JitsiMeet = () => {
         <input
           id='name'
           type='text'
-          placeholder='Name'
+          placeholder='custom link'
           value={name}
           onChange={(e) => setName(e.target.value)}
         />
