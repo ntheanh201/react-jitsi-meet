@@ -25,37 +25,23 @@ export const JitsiMeet = () => {
 
   const handleClick = (event) => {
     event.preventDefault()
-    if (room && name) setCall(true)
+    setCall(true)
   }
-
-  return call ? (
-    <JitsiCalling name={name} password={password} roomId={room} />
-  ) : (
-    <form>
-      <input
-        id='room'
-        type='text'
-        placeholder='Room'
-        value={room}
-        onChange={(e) => setRoom(e.target.value)}
-      />
-      <input
-        id='name'
-        type='text'
-        placeholder='Name'
-        value={name}
-        onChange={(e) => setName(e.target.value)}
-      />
-      <input
-        id='password'
-        type='text'
-        placeholder='Password (optional)'
-        value={password}
-        onChange={(e) => setPassword(e.target.value)}
-      />
-      <button onClick={handleClick} type='submit'>
-        Start / Join
-      </button>
-    </form>
+  return (
+    <>
+      <form>
+        <input
+          id='name'
+          type='text'
+          placeholder='Name'
+          value={name}
+          onChange={(e) => setName(e.target.value)}
+        />
+        <button onClick={handleClick} type='submit'>
+          Start / Join
+        </button>
+      </form>
+      {call && <p>https://13.250.211.215/{name}</p>}
+    </>
   )
 }
